@@ -46,7 +46,38 @@
         </div>
     </div>
     <script>
-    // Escríbe aquí tu código
+        document.getElementById('formulario').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        let isValid = true;
+        const regex = /^[A-Za-z\s]+$/;
+        const nombre = document.getElementById('nombre').value.trim();
+        const asunto = document.getElementById('asunto').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        document.querySelector('.errorNombre').textContent = "";
+        document.querySelector('.errorAsunto').textContent = "";
+        document.querySelector('.errorMensaje').textContent = "";
+        document.querySelector('.resultado').textContent = "";
+
+        if (!regex.test(nombre) || nombre === "") {
+            document.querySelector('.errorNombre').textContent = "Por favor, ingresa un nombre válido (solo letras).";
+            isValid = false;
+        }
+
+        if (!regex.test(asunto) || asunto === "") {
+            document.querySelector('.errorAsunto').textContent = "Por favor, ingresa un asunto válido (solo letras).";
+            isValid = false;
+        }
+
+        if (!regex.test(mensaje) || mensaje === "") {
+            document.querySelector('.errorMensaje').textContent = "Por favor, ingresa un mensaje válido (solo letras).";
+            isValid = false;
+        }
+
+        if (isValid) {
+            document.querySelector('.resultado').textContent = "¡Mensaje enviado con éxito!";
+        }
+    });
     </script>
 </body>
 

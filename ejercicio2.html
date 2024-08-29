@@ -33,9 +33,18 @@
         </div>
     </div>
 </div>
-    <script>
-    // Escríbe aquí tu código
-    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll('button');
+        const caja = document.getElementById('caja');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const color = button.style.backgroundColor;
+                caja.style.backgroundColor = color;
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
